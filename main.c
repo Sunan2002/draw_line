@@ -81,29 +81,29 @@ for(int i = 0; i < 100; i++){
   }
 }
 
-int oppx = YRES/2;
+int oppx = XRES/2;
 int oppy = YRES/2;
 int xneg;
 int yneg;
 
-for (int i = 0; i < 100; i++){
+for (int i = 0; i < 1000; i++){
   if (i % 2 == 0){
     xneg = oppx - rand() % 15;
     yneg = oppy + rand() % 150;
-    draw_line(oppx, oppy, xneg, yneg, s, c);
-    xneg = curx;
-    yneg = cury;
+    draw_line(oppx, oppy, xneg , yneg, s, c);
+    oppx = xneg;
+    oppy = yneg;
   }
   else{
     xneg = oppx - rand() % 15;
     yneg = oppy - rand() % 150;
-    draw_line(oppx, oppy, xneg, yneg, s, c);
+    draw_line(oppx, oppy, xneg , yneg, s, c);
     oppx = xneg;
     oppy = yneg;
   }
 }
-
 */
+
 
 
 clear_screen(s);
@@ -136,10 +136,11 @@ c.green = 255;
 draw_line(0, YRES/2, XRES-1, YRES/2, s, c);
 draw_line(XRES/2, 0, XRES/2, YRES-1, s, c);
 
-display(s);
+
 save_extension(s, "ascii.png");
 save_ppm(s, "binary.ppm");
 save_ppm_ascii(s, "ascii.ppm");
+display(s);
 
 return 0;
 
